@@ -29,20 +29,29 @@
 // export default App
 // understanding usestate with example of counter
 
-import React, {useState}from 'react'
+import React, {useState} from 'react'
 
 const App = () => {
 
     const [person, setPerson] = useState({
-        name: "krishna",
+        name: "Krishna",
         age: 20
     });
 
     const changePerson = () => {
-        setPerson({
+
+        if (person.name === "Krishna"){
+            setPerson({
             name: "Rahul",
             age: 25
         });
+        } else {
+            setPerson({
+                name: "Krishna",
+                age: 20,
+            });
+        }
+       
     };
 
     
