@@ -26,6 +26,9 @@
 // ***************************************************************************************************************
 
 
+//  practicing, when i clicked on submit btn in console i should see the welcome+name
+
+
 import { useState } from 'react'
 
 const App = () => {
