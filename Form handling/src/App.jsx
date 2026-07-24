@@ -28,7 +28,7 @@
 
 //  practicing, when i clicked on submit btn in console i should see the welcome+name
 
-
+import React from 'react'
 import { useState } from 'react'
 
 const App = () => {
@@ -38,6 +38,7 @@ const App = () => {
   const btnClicked = (e) => {
     e.preventDefault();
     console.log("Welcome", name);  
+    setName('')
   }
 
   return (
@@ -45,7 +46,8 @@ const App = () => {
       <form onSubmit={btnClicked}>
          <input type="text" placeholder='Enter your name'
          value={name}
-         onChange={(e) => setName(e.target.value)}/>
+         onChange={(e) => setName(e.target.value)}  
+         />
          <button type='submit'>Submit</button>
       </form>
     </div>
