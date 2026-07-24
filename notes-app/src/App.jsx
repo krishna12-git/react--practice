@@ -1,14 +1,41 @@
-import React from 'react'
+import { useState } from "react";
+import NoteForm from "./components/NoteForm";
+import NoteCard from "./components/NoteCard";
+import "./App.css";
 
 const App = () => {
+  const [notes, setNotes] = useState([]);
+
+  const addNote = (newNote) => {
+    setNotes([...notes, newNote]);
+  };
+
+  const deleteNote = (noteId) => {
+    const remainingNotes = notes.filter((note) => note.id !== noteId);
+    setNotes(remainingNotes);
+  };
+
   return (
-    <main>
+    <main className="app">
       <h1>My Notes</h1>
 
-      
-    </main>
-    
-  )
-}
+      <NoteForm addNote={addNote} />
 
-export default App
+      <section className="notes-container">
+        {notes.length === 0 ? (
+          <p className="empty-message">No notes added yet.</p>
+        ) : (
+          notes.map((note) => (
+            <NoteCard
+              key={note.id}
+              note={note}
+              deleteNote={deleteNote}
+            />
+          ))
+        )}
+      </section>
+    </main>
+  );
+};
+
+export default App;
