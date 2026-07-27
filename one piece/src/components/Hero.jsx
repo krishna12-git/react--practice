@@ -6,6 +6,8 @@ function Hero() {
         src="/images/luffy-dashboard.png"
         alt="Monkey D. Luffy"
         className="absolute inset-0 h-full w-full object-contain object-bottom"
+
+        
       />
 
       {/* Dark gradient overlay */}
